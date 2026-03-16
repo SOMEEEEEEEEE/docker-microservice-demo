@@ -22,6 +22,7 @@ This project demonstrates basic DevOps practices including containerization, API
 - Docker containerization
 - Runs on Ubuntu EC2
 - Accessible via HTTP API
+- Health check endpoint for monitoring service status (03/16)
 
 ---
 
@@ -42,3 +43,14 @@ GET /
 Response:
 
 Hello from Docker Flask API!
+
+---
+
+### GET /health
+
+Response:
+
+```json
+{
+  "status": "healthy"
+}

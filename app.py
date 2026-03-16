@@ -1,15 +1,17 @@
-from flask import Flask
-import redis
+from flask import Flask, jsonify
 
 app = Flask(__name__)
 
-r = redis.Redis(host="redis", port=6379)
+# Root endpoint
+@app.route("/", methods=["GET"])
+def home():
+    return "Hello from Docker Flask API!"
 
-@app.route("/")
-def hello():
+# Health check endpoint
+@app.route("/health", methods=["GET"])
+def health():
+    return jsonify({"status": "healthy"}), 200
 
-    count = r.incr("hits")
-
-    return f"Hello! This page has been visited {count} times."
-
-app.run(host="0.0.0.0", port=5000)
+if __name__ == "__main__":
+    # Run on all interfaces, port 5000
+    app.run(host="0.0.0.0", port=5000, debug=True)
