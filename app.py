@@ -2,12 +2,12 @@ from flask import Flask, jsonify
 
 app = Flask(__name__)
 
-# Root endpoint
+# Root endpoint: returns a simple hello message
 @app.route("/", methods=["GET"])
 def home():
     return "Hello from Docker Flask API!"
 
-# Health check endpoint
+# Health check endpoint: returns service status for monitoring
 @app.route("/health", methods=["GET"])
 def health():
     return jsonify({"status": "healthy"}), 200
