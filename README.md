@@ -3,6 +3,8 @@
 A simple Flask API containerized with Docker and deployed on an Ubuntu EC2 instance.  
 This project demonstrates basic DevOps practices including containerization, API deployment, and cloud testing.
 
+> Note: This is a demo project for learning and practice purposes.
+
 ---
 
 ## Project Structure
